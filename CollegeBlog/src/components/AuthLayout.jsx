@@ -1,6 +1,6 @@
 import React, {useState , useEffect} from 'react'
 import { useNavigate } from 'react-router-dom'
-import { UseSelector, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 
 
 function Protected({
@@ -15,7 +15,7 @@ function Protected({
         if(authentication && authStatus !== authentication){
             navigate("/login");
         }
-        else if(authStatus === true){
+        else if(!authentication && authStatus !== authentication){
             navigate("/");
         }
         setLoader(false);
